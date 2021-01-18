@@ -15,13 +15,16 @@ function Post() {
 
   function handleSubmit(e) {
     e.preventDefault();
-      const add={id: id,
+      const add={
+      id: id,
       title: title,
       author: author,
       tags: tags.split(","),
       category: category,
       content: content,
-      date: Date().toString(),}
+      date: Date().toString(),
+    }
+    
       console.log(add);
 
     setId("");

@@ -1,52 +1,54 @@
 import React, { useEffect, useState } from "react";
 import { blogData } from "./Data";
 import Comment from "./Comment";
-import { Col, Container, Row, Image, Button } from "react-bootstrap";
+import {Container,Row,Col,Button,Image} from "react-bootstrap";
 import Forms from "./Forms";
 
-const IndividualPost = ({ match, history }) => {
-  const blogId = match.params.id;
-  const [blogs, setBlogs] = useState([]);
-  console.log(blogs);
+function IndividualPost ({ match, history }) {
 
-  const searchArray = (id, array) => {
-    for (let i = 0; i < array.length; i++) {
-      if (array[i].id === parseInt(id)) {
-        return array[i];
+  const Id = match.params.id;
+  const [blog, setBlog] = useState([]);
+  console.log(blog);
+
+  function search (id, arr) {
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i].id === parseInt(id)) {
+        return arr[i];
       }
     }
   };
 
   useEffect(() => {
-    const searchedBlog = searchArray(blogId, blogData);
-    if (searchedBlog) {
-      setBlogs(searchedBlog);
+    const searchBlog = search(Id, blogData);
+    if (searchBlog) {
+      setBlog(searchBlog);
     }
-  }, [blogId]);
+  }, [Id]);
 
   const handleClick = () => {
     history.push("/");
   };
 
+
   return (
     <Container>
-      <Button variant="outline-primary" onClick={handleClick} className="mt-3">
-        Go Back
-      </Button>
       <Row>
         <Col lg={12}>
-          <h1 className="mt-4">{blogs.title}</h1>
-          <p className="lead">-{blogs.author}</p>
-          <p>{blogs.date}</p>
-          <hr />
-          <Image rounded fluid src="https://picsum.photos/1000/400" />
-          <hr />
-          <p className="lead">{blogs.content}</p>
+          <h3 className="mt-3">{blog.title}</h3>
+          <p>(By: {blog.author})</p>
+          <p>{blog.content}</p>
+          <br />
+          <Image rounded fluid src="https://picsum.photos/400/300" />
+          <br/><br/>
           <Forms />
-          <Comment />
+          <hr />
+          <p>{blog.date}</p>
           <Comment />
         </Col>
       </Row>
+      <Button onClick={handleClick} style={{backgroundColor:"#d9312b",border:"none",marginLeft: "1140px"}}>
+        Back
+      </Button>
     </Container>
   );
 };

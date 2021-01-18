@@ -6,14 +6,14 @@ import { LinkContainer } from "react-router-bootstrap";
 function Cards ({ blogData }) {
   return blogData.map((item) => (
 <div style={{marginTop:"70px"}}>
-    <Col key={item.id} lg={12} sm={12}>
-      <Card style={{ height: "250px" }} className="mt-4">
+    <Col key={item.id} lg={12} sm={6}>
+      <Card style={{ height: "200px" }} className="mt-3">
       <Card.Body>
           <LinkContainer to={`/post/${item.id}`}>
-            <h3 className="heading-title">{item.title}</h3>
+            <h2 className="heading-title">{item.title}</h2>
           </LinkContainer>
           <Card.Text>
-            <Badge pill variant="light">
+            <Badge pill variant="dark">
               <Image
                 src="https://picsum.photos/30"
                 roundedCircle
@@ -24,7 +24,7 @@ function Cards ({ blogData }) {
               <span className="ml-2">{item.author}</span>
             </Badge>
             {item.tags.map((tag) => (
-              <Badge key={tag} className="float-right mx-1" variant="primary">
+              <Badge key={tag} className="float-right mx-2" style={{backgroundColor:"yellow"}}>
                 {tag}
               </Badge>
             ))}
@@ -33,12 +33,14 @@ function Cards ({ blogData }) {
         <hr />
         <div className="d-flex">
           <span className="ml-2 mb-2">
-            <i className="lni lni-comments mr-1"></i>
+          <LinkContainer to={`/post/${item.id}`}>
+            <span>&#128195; </span></LinkContainer>
             {item.Count}
           </span>
           <div className="ml-auto">
-            <i className="lni lni-pencil mx-1 lnr-icon"></i>
-            <i className="lni lni-trash mx-1 lnr-icon"></i>
+          <LinkContainer to={`/post`}>
+         <span>&#9999;&#65039;</span></LinkContainer>
+            <span> &#10060;</span>
           </div>
         </div>
       </Card>

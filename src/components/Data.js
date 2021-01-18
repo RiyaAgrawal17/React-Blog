@@ -11,7 +11,7 @@ export const blogData = [
   },
   {
     id: 2,
-    title: "Learn Redux in 10 minutes!",
+    title: "Learn Redux in 10 minutes!!",
     date: Date().toString(),
     author: "Sagar Choudhary",
     tags:["react", "javascript", "HTML"],

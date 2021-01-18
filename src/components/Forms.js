@@ -1,30 +1,33 @@
 import React, { useState } from "react";
 import { Button, Card, Form } from "react-bootstrap";
 
-const Forms = () => {
-  const [comment, setComment] = useState("");
+function Forms () {
+  const [comments, setComments] = useState("");
 
   const handleComment = (e) => {
     e.preventDefault();
-    console.log(comment);
-    setComment("");
+    console.log(comments);
+    setComments("");
   };
 
+function handleChange(e){
+  setComments(e.target.value);
+}
   return (
-    <Card className="my-4">
-      <Card.Header>Leave a comment</Card.Header>
+    <Card className="my-6">
+      <Card.Header>New Comment</Card.Header>
       <Card.Body>
         <Form onSubmit={handleComment}>
           <Form.Group>
             <Form.Control
-              value={comment}
-              onChange={(e) => setComment(e.target.value)}
+              value={comments}
+              onChange={handleChange}
               as="textarea"
-              rows={3}
+              rows={5}
             />
           </Form.Group>
 
-          <Button type="submit" variant="primary">
+          <Button type="submit" style={{backgroundColor:"#d9312b", border:"none"}}>
             Submit
           </Button>
         </Form>

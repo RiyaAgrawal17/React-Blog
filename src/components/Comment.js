@@ -10,8 +10,8 @@ const Comment = () => {
         className="mr-3 d-flex"
       />
       <Media.Body>
-        <h4>Name</h4>
-       This is a comment
+        <h4>Anonymous</h4>
+       This is a comment.
       </Media.Body>
     </Media>
   );
