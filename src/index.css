@@ -15,7 +15,7 @@ code {
 .drp-position{
   position: fixed;
   top: 60px;
-  right: 40px;
+  right: 140px;
 }
 
 .btn-position {
@@ -29,5 +29,13 @@ code {
   border: none;
 }
 .lnr-icon:hover {
+  cursor: pointer;
+}
+
+.heading-title {
+  color: #d9312b;
+}
+
+.heading-title:hover {
   cursor: pointer;
 }

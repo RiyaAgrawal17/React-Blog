@@ -34,9 +34,7 @@ function Post() {
   
 
   return (
-    <div>
-    <h1 className="text-center my-4">Add a new Post</h1>
-    <hr />
+    <div style={{marginTop:"70px"}}>
     <div className="border border-primary rounded container p-4 mx-auto">
     <Container>
     <Form onSubmit={handleSubmit}>
