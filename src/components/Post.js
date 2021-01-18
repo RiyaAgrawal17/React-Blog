@@ -38,9 +38,9 @@ function Post() {
 
   return (
     <div style={{marginTop:"70px"}}>
-    <div className="border border-primary rounded container p-4 mx-auto">
+      <h3>New Blog</h3>
     <Container>
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit} style={{marginTop:"30px"}}>
 
     <Form.Group controlId="formGridId">
         <Form.Control value={id}
@@ -93,7 +93,7 @@ function Post() {
       </Button>
     </Form>
   </Container>
-  </div>
+  
       <LinkContainer to="/">
       <Button className="btn-position">
           <i className="lni lni-lg lni-home"></i>
